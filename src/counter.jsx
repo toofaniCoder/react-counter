@@ -22,17 +22,19 @@ const PrimaryButton = styled(Button)(({ theme }) => ({
 
 const Counter = (props) => {
   const counter = useStore((state) => state.counter);
+  const increaseCounter = useStore((state) => state.increaseCounter);
+  const decreaseCounter = useStore((state) => state.decreaseCounter);
   return (
     <Container sx={containerStyle}>
       <Typography>{counter}</Typography>
       <Stack spacing={2}>
         <Stack spacing={2} direction="row">
-          <PrimaryButton>+</PrimaryButton>
+          <PrimaryButton onClick={increaseCounter}>+</PrimaryButton>
           <PrimaryButton>increase by 10</PrimaryButton>
         </Stack>
 
         <Stack spacing={2} direction="row">
-          <PrimaryButton>-</PrimaryButton>
+          <PrimaryButton onClick={decreaseCounter}>-</PrimaryButton>
           <PrimaryButton>decrease by 10</PrimaryButton>
         </Stack>
         <PrimaryButton>reset counter</PrimaryButton>
