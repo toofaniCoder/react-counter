@@ -21,12 +21,21 @@ const PrimaryButton = styled(Button)(({ theme }) => ({
 }));
 
 const Counter = (props) => {
-  const counter = useStore((state) => state.counter);
-  const increaseCounter = useStore((state) => state.increaseCounter);
-  const decreaseCounter = useStore((state) => state.decreaseCounter);
-  const increaseBy = useStore((state) => state.increaseBy);
-  const decreaseBy = useStore((state) => state.decreaseBy);
-  const reset = useStore((state) => state.reset);
+  // const counter = useStore((state) => state.counter);
+  // const increaseCounter = useStore((state) => state.increaseCounter);
+  // const decreaseCounter = useStore((state) => state.decreaseCounter);
+  // const increaseBy = useStore((state) => state.increaseBy);
+  // const decreaseBy = useStore((state) => state.decreaseBy);
+  // const reset = useStore((state) => state.reset);
+
+  const {
+    counter,
+    increaseCounter,
+    decreaseCounter,
+    increaseBy,
+    decreaseBy,
+    reset,
+  } = useStore();
 
   return (
     <Container sx={containerStyle}>
