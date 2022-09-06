@@ -24,18 +24,24 @@ const Counter = (props) => {
   const counter = useStore((state) => state.counter);
   const increaseCounter = useStore((state) => state.increaseCounter);
   const decreaseCounter = useStore((state) => state.decreaseCounter);
+  const increaseBy = useStore((state) => state.increaseBy);
+  const decreaseBy = useStore((state) => state.decreaseBy);
   return (
     <Container sx={containerStyle}>
       <Typography>{counter}</Typography>
       <Stack spacing={2}>
         <Stack spacing={2} direction="row">
           <PrimaryButton onClick={increaseCounter}>+</PrimaryButton>
-          <PrimaryButton>increase by 10</PrimaryButton>
+          <PrimaryButton onClick={() => increaseBy(10)}>
+            increase by 10
+          </PrimaryButton>
         </Stack>
 
         <Stack spacing={2} direction="row">
           <PrimaryButton onClick={decreaseCounter}>-</PrimaryButton>
-          <PrimaryButton>decrease by 10</PrimaryButton>
+          <PrimaryButton onClick={() => decreaseBy(10)}>
+            decrease by 10
+          </PrimaryButton>
         </Stack>
         <PrimaryButton>reset counter</PrimaryButton>
       </Stack>
