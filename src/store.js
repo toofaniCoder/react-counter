@@ -6,6 +6,7 @@ const useStore = create((set) => ({
   decreaseCounter: () => set((state) => ({ counter: state.counter - 1 })),
   increaseBy: (num) => set((state) => ({ counter: state.counter + num })),
   decreaseBy: (num) => set((state) => ({ counter: state.counter - num })),
+  reset: () => set({ counter: 0 }),
 }));
 
 export default useStore;

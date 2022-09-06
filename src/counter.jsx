@@ -26,6 +26,8 @@ const Counter = (props) => {
   const decreaseCounter = useStore((state) => state.decreaseCounter);
   const increaseBy = useStore((state) => state.increaseBy);
   const decreaseBy = useStore((state) => state.decreaseBy);
+  const reset = useStore((state) => state.reset);
+
   return (
     <Container sx={containerStyle}>
       <Typography>{counter}</Typography>
@@ -43,7 +45,7 @@ const Counter = (props) => {
             decrease by 10
           </PrimaryButton>
         </Stack>
-        <PrimaryButton>reset counter</PrimaryButton>
+        <PrimaryButton onClick={reset}>reset counter</PrimaryButton>
       </Stack>
     </Container>
   );
