@@ -1,6 +1,7 @@
 import { Typography, Container, Button, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Stack } from '@mui/system';
+import useStore from './store';
 
 const containerStyle = {
   minHeight: '100vh',
@@ -20,9 +21,10 @@ const PrimaryButton = styled(Button)(({ theme }) => ({
 }));
 
 const Counter = (props) => {
+  const counter = useStore((state) => state.counter);
   return (
     <Container sx={containerStyle}>
-      <Typography>10</Typography>
+      <Typography>{counter}</Typography>
       <Stack spacing={2}>
         <Stack spacing={2} direction="row">
           <PrimaryButton>+</PrimaryButton>
