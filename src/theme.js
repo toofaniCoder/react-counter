@@ -4,10 +4,10 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Roboto Mono',
     h1: {
-      fontSize: 300,
-      letterSpacing: '-60px',
+      fontSize: 200,
+      letterSpacing: '-20px',
       fontWeight: '400',
-      marginLeft: '-80px',
+      marginLeft: '-50px',
     },
   },
   palette: {
