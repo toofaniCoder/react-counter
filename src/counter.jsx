@@ -1,7 +1,14 @@
 import { Typography, Container, Button, Grid, Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Stack } from '@mui/system';
-
+import { useSnapshot } from 'valtio';
+import store, {
+  increaseCounter,
+  increaseBy,
+  decreaseCounter,
+  decreaseBy,
+  reset,
+} from './store';
 const containerStyle = {
   minHeight: '100vh',
   display: 'flex',
@@ -20,20 +27,25 @@ const PrimaryButton = styled(Button)(({ theme }) => ({
 }));
 
 const Counter = (props) => {
+  const { counter } = useSnapshot(store);
   return (
     <Container sx={containerStyle}>
-      <Typography>10</Typography>
+      <Typography>{counter}</Typography>
       <Stack spacing={2}>
         <Stack spacing={2} direction="row">
-          <PrimaryButton>+</PrimaryButton>
-          <PrimaryButton>increase by 10</PrimaryButton>
+          <PrimaryButton onClick={increaseCounter}>+</PrimaryButton>
+          <PrimaryButton onClick={() => increaseBy(10)}>
+            increase by 10
+          </PrimaryButton>
         </Stack>
 
         <Stack spacing={2} direction="row">
-          <PrimaryButton>-</PrimaryButton>
-          <PrimaryButton>decrease by 10</PrimaryButton>
+          <PrimaryButton onClick={decreaseCounter}>-</PrimaryButton>
+          <PrimaryButton onClick={() => decreaseBy(10)}>
+            decrease by 10
+          </PrimaryButton>
         </Stack>
-        <PrimaryButton>reset counter</PrimaryButton>
+        <PrimaryButton onClick={reset}>reset counter</PrimaryButton>
       </Stack>
     </Container>
   );
